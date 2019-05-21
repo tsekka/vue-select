@@ -85,6 +85,16 @@
     mixins: [pointerScroll, typeAheadPointer, ajax],
 
     props: {
+    
+      /**
+      *
+      *
+      */
+      startOpened: {
+        type: Boolean,
+        default: false,
+      },
+    
       /**
        * Contains the currently selected value. Very similar to a
        * `value` attribute on an <input>. You can listen for changes
@@ -427,7 +437,7 @@
     data() {
       return {
         search: '',
-        open: false,
+        open: this.startOpened,
         pushedTags: [],
         _value: [] // Internal value managed by Vue Select if no `value` prop is passed
       }
